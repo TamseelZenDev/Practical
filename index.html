@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paws & Play - Premium Pet Care</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #333333;
+    background: linear-gradient(110deg, #fff5fa, #ffffff 65%, #f2fff8);
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 3.2%;
+    gap: 20px;
+       position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+    background-color: #e02871;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo-icon::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    box-shadow: 12px 0 0 white, 0 12px 0 white, 12px 12px 0 white;
+}
+
+.logo-text h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #171827;
+    line-height: 1.1;
+}
+
+.logo-text span {
+    font-size: 12px;
+    color: #666666;
+    font-weight: 500;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e02871;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle svg {
+    width: 21px;
+    height: 21px;
+    fill: none;
+    stroke: #4a4a4a;
+    stroke-width: 2;
+}
+
+.theme-toggle:hover {
+    background-color: #ffe0ed;
+}
+
+.theme-toggle:hover svg {
+    stroke: #e02871;
+}
+
+.btn-pink,
+.btn-outline,
+.btn-magenta {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-pink {
+    background-color: #e02871;
+    color: white;
+    border: 2px solid #e02871;
+}
+
+.btn-pink:hover {
+    background-color: #c41e5e;
+    border-color: #c41e5e;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #e02871;
+    border: 2px solid #e02871;
+}
+
+.btn-outline:hover {
+    background-color: #e02871;
+    color: white;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 88px);
+    padding: 30px 3.2%;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    color: #111827;
+    line-height: 1.24;
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.65;
+    color: #555b6b;
+    margin-bottom: 36px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-item h2 {
+    font-size: 32px;
+    color: #e02871;
+    margin-bottom: 4px;
+}
+
+.stat-item p {
+    font-size: 13px;
+    color: #777777;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(224, 40, 113, 0.12), transparent 70%);
+    z-index: -1;
+    top: -10%;
+    left: -10%;
+}
+
+.image-card {
+    width: 100%;
+    max-width: 605px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.image-card img {
+    width: 100%;
+    height: 454px;
+    display: block;
+    object-fit: cover;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services-section {
+    padding: 60px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666666;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .image-container img {
+    transform: scale(1.15);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #2ecc71;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    color: #1a1a1a;
+}
+
+.card-header .price {
+    font-size: 1.05rem;
+    color: #e91e63;
+    background-color: #fce4ec;
+    padding: 4px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #555555;
+    margin-bottom: 20px;
+    min-height: 70px;
+    line-height: 1.6;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.features-list li {
+    font-size: 0.95rem;
+    color: #666666;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.checkmark {
+    color: #2ecc71;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.duration {
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+.btn-magenta {
+    background-color: white;
+    color: #e02871;
+    border: 2px solid #e02871;
+    padding: 13px 32px;
+}
+
+.btn-magenta:hover {
+    background-color: #e02871;
+    color: white;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.about-section {
+    padding: 80px 0;
+}
+
+.about-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.image-gallery {
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.main-img {
+    width: 100%;
+    max-width: 600px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 40px;
+    display: block;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    background-color: #d61c62;
+    color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(214, 28, 98, 0.2);
+}
+
+.experience-badge .years {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.experience-badge .text {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sub-title {
+    color: #d61c62;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.main-title {
+    font-size: 42px;
+    color: #1e1e24;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.desc-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #61616a;
+    margin-bottom: 20px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.feature-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.icon-check {
+    background-color: #e3fbf1;
+    color: #1ed781;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.card-info h3 {
+    font-size: 18px;
+    color: #1e1e24;
+    margin-bottom: 8px;
+}
+
+.card-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #61616a;
+}
+
+.gallery-section {
+    padding: 80px 20px;
+    background: #ffffff;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gallery-title {
+    font-size: 42px;
+    color: #1e1e24;
+    margin-bottom: 12px;
+}
+
+.gallery-subtitle {
+    font-size: 16px;
+    color: #777777;
+    margin-bottom: 45px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 4 / 5;
+    cursor: pointer;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.hover-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    color: #d61c62;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s ease;
+}
+
+.gallery-card:hover .hover-badge {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.instagram-follow {
+    color: #777777;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.instagram-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin-top: 12px;
+    color: #E1306C;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.instagram-link i {
+    font-size: 25px;
+}
+
+.instagram-link:hover {
+    opacity: 0.75;
+}
+
+.reviews {
+    background-color: #d11270;
+    color: #ffffff;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.reviews .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 50px;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+    color: #2e7d32;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.quote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #eeeeee;
+    padding-top: 15px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111111;
+}
+
+.meta {
+    font-size: 0.85rem;
+    color: #666666;
+    margin-top: 2px;
+}
+
+.cta-section {
+    padding: 85px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #fff0f6, #ffe1ed);
+}
+
+.cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #1e1e24;
+    margin-bottom: 16px;
+}
+
+.cta-section p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+    color: #5f5f68;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.cta-phone {
+    color: #d61c62;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+footer {
+    background: #171827;
+    color: #e9e9ef;
+    padding: 65px 5% 25px;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr;
+    gap: 35px;
+}
+
+.footer-brand h2 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #b8bac6;
+    max-width: 280px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 18px;
+}
+
+.footer-column a,
+.footer-column p {
+    display: block;
+    color: #b8bac6;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 7px;
+}
+
+.footer-column a:hover {
+    color: #ff7eae;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid #38394a;
+    text-align: center;
+    color: #aeb0bc;
+    font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+    nav {
+        gap: 16px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 4%;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        padding: 40px 4%;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 52px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .stats-grid {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .image-card {
+        margin: 0 auto;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .about-section .container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .image-gallery {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .nav-right {
+        margin-left: auto;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-pink,
+    .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .image-card img {
+        height: 300px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-img {
+        height: 400px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews {
+        padding: 65px 20px;
+    }
+
+    .reviews h2 {
+        font-size: 2.2rem;
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-section h2 {
+        font-size: 32px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-badge {
+        width: 115px;
+        height: 115px;
+        right: -5px;
+    }
+
+    .experience-badge .years {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <div class="logo-icon"></div>
+        <div class="logo-text">
+            <h1>Paws & Play</h1>
+            <span>Premium Pet Care</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#team">Team</a>
+        <a href="contact.htm">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle Dark Mode">
+            <svg viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+        <a href="#book" class="btn-pink">Book Now</a>
+    </div>
+</header>
+
+<main class="hero-container">
+    <section class="hero-content">
+        <h2 class="hero-title">Where Every Pet Gets the Royal Treatment</h2>
+
+        <p class="hero-description">
+            Professional grooming, loving daycare, and comfortable boarding for your furry family members. Because they deserve the best.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#book" class="btn-pink">Book an Appointment</a>
+            <a href="#services" class="btn-outline">View Services</a>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-item"><h2>10K+</h2><p>Happy Pets</p></div>
+            <div class="stat-item"><h2>8+</h2><p>Years Experience</p></div>
+            <div class="stat-item"><h2>4.9</h2><p>Average Rating</p></div>
+            <div class="stat-item"><h2>50+</h2><p>Services</p></div>
+        </div>
+    </section>
+
+    <section class="hero-image-wrapper">
+        <div class="image-card">
+            <img src="paws_and_play_dog_photo.png" alt="Happy Dog">
+        </div>
+    </section>
+</main>
+
+<section class="services-section" id="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Everything your pet needs for a happy, healthy life</p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&h=400&fit=crop" alt="Full Grooming">
+                    <span class="badge">Popular</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-header"><h3>Full Grooming</h3><span class="price">From $65</span></div>
+                    <p class="description">Complete grooming package including bath, haircut, nail trim, ear cleaning, and teeth brushing.</p>
+                    <ul class="features-list">
+                        <li><span class="checkmark">✓</span>Bath & blow dry</li>
+                        <li><span class="checkmark">✓</span>Breed-specific haircut</li>
+                        <li><span class="checkmark">✓</span>Nail trim</li>
+                    </ul>
+                    <p class="duration">Duration: 2-3 hours</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1581888227599-779811939961?w=600&h=400&fit=crop" alt="Bath & Brush">
+                </div>
+                <div class="card-content">
+                    <div class="card-header"><h3>Bath & Brush</h3><span class="price">From $35</span></div>
+                    <p class="description">Refreshing bath with premium shampoo, blow dry, and thorough brushing to keep coat healthy.</p>
+                    <ul class="features-list">
+                        <li><span class="checkmark">✓</span>Premium shampoo</li>
+                        <li><span class="checkmark">✓</span>Conditioning treatment</li>
+                        <li><span class="checkmark">✓</span>Blow dry</li>
+                    </ul>
+                    <p class="duration">Duration: 1 hour</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop" alt="Daycare">
+                    <span class="badge">Popular</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-header"><h3>Daycare</h3><span class="price">$35/day</span></div>
+                    <p class="description">Safe, supervised playtime with other dogs in our climate-controlled facility with indoor/outdoor areas.</p>
+                    <ul class="features-list">
+                        <li><span class="checkmark">✓</span>Supervised play groups</li>
+                        <li><span class="checkmark">✓</span>Indoor/outdoor areas</li>
+                        <li><span class="checkmark">✓</span>Naptime rest periods</li>
+                    </ul>
+                    <p class="duration">Duration: Full day</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop" alt="Overnight Boarding">
+                </div>
+                <div class="card-content">
+                    <div class="card-header"><h3>Overnight Boarding</h3><span class="price">From $55</span></div>
+                    <p class="description">Comfortable overnight stays with cozy bedding, multiple play sessions, and lots of love.</p>
+                    <ul class="features-list">
+                        <li><span class="checkmark">✓</span>Private suites available</li>
+                        <li><span class="checkmark">✓</span>Evening cuddle time</li>
+                        <li><span class="checkmark">✓</span>3+ play sessions daily</li>
+                    </ul>
+                    <p class="duration">Duration: Overnight</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?w=600&h=400&fit=crop" alt="Nail Trim">
+                </div>
+                <div class="card-content">
+                    <div class="card-header"><h3>Nail Trim</h3><span class="price">$15</span></div>
+                    <p class="description">Quick and stress-free nail trimming by experienced groomers using gentle handling techniques.</p>
+                    <ul class="features-list">
+                        <li><span class="checkmark">✓</span>Gentle handling</li>
+                        <li><span class="checkmark">✓</span>Dremel smoothing</li>
+                        <li><span class="checkmark">✓</span>Paw pad check</li>
+                    </ul>
+                    <p class="duration">Duration: 15 min</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=400&fit=crop" alt="Puppy Package">
+                </div>
+                <div class="card-content">
+                    <div class="card-header"><h3>Puppy Package</h3><span class="price">$45</span></div>
+                    <p class="description">Special first grooming experience designed to make puppies comfortable with the grooming process.</p>
+                    <ul class="features-list">
+                        <li><span class="checkmark">✓</span>Gentle introduction</li>
+                        <li><span class="checkmark">✓</span>Mini bath</li>
+                        <li><span class="checkmark">✓</span>Face trim</li>
+                    </ul>
+                    <p class="duration">Duration: 1 hour</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="button-container">
+            <a href="#services" class="btn-magenta">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="image-gallery">
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&h=600&fit=crop" alt="Dogs and Cats" class="main-img">
+                <div class="experience-badge">
+                    <span class="years">8+</span>
+                    <span class="text">Years</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-side">
+            <span class="sub-title">OUR STORY</span>
+            <h2 class="main-title">A Place Where Pets Come First</h2>
+
+            <p class="desc-text">Paws & Play was founded in 2015 by Sarah Mitchell, a certified master groomer with a vision to create a stress-free environment where pets could receive top-quality care.</p>
+
+            <p class="desc-text">What started as a small grooming salon has grown into Austin's premier pet care facility, offering grooming, daycare, and boarding services for dogs and cats of all sizes.</p>
+
+            <p class="desc-text">Our team of certified professionals treats every pet like their own, using gentle handling techniques and positive reinforcement to ensure a happy experience.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-check">✓</div>
+                    <div class="card-info"><h3>Certified Staff</h3><p>All groomers are nationally certified with ongoing education requirements.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-check">✓</div>
+                    <div class="card-info"><h3>Fear-Free Certified</h3><p>We use fear-free handling techniques to minimize stress and anxiety.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-check">✓</div>
+                    <div class="card-info"><h3>Premium Products</h3><p>Only the highest quality, pet-safe shampoos and grooming products.</p></div>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-check">✓</div>
+                    <div class="card-info"><h3>Climate Controlled</h3><p>Temperature-controlled facility for year-round comfort.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery-section" id="gallery">
+    <div class="gallery-container">
+        <h2 class="gallery-title">Happy Pets Gallery</h2>
+        <p class="gallery-subtitle">See our furry friends looking their best</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=600&fit=crop" alt="Happy golden retriever" class="gallery-image">
+                <div class="hover-badge">Grooming</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=600&fit=crop" alt="Dogs playing" class="gallery-image">
+                <div class="hover-badge">Daycare</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=600&h=600&fit=crop" alt="Dalmatian portrait" class="gallery-image">
+                <div class="hover-badge">Grooming</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?w=600&h=600&fit=crop" alt="Cat portrait" class="gallery-image">
+                <div class="hover-badge">Grooming</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=600&fit=crop" alt="Dog in boarding suite" class="gallery-image">
+                <div class="hover-badge">Boarding</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?w=600&h=600&fit=crop" alt="Dog portrait" class="gallery-image">
+                <div class="hover-badge">Grooming</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&h=600&fit=crop" alt="Happy dog" class="gallery-image">
+                <div class="hover-badge">Daycare</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=600&h=600&fit=crop" alt="Pet portrait" class="gallery-image">
+                <div class="hover-badge">Boarding</div>
+            </div>
+        </div>
+
+        <p class="instagram-follow">Follow us on Instagram to see more happy pets!</p>
+
+        <a class="instagram-link" href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i>
+            @pawsandplay
+        </a>
+    </div>
+</section>
+
+<section class="reviews">
+    <h2>What Pet Parents Say</h2>
+    <p class="subtitle">Don't just take our word for it - hear from our happy customers</p>
+
+    <div class="review-grid">
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"My anxious rescue dog Max used to hate grooming, but the team at Paws & Play has completely changed his experience. He actually wags his tail when we pull up now!"</p>
+            <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&h=100&fit=crop" alt="Jessica Thompson" class="avatar">
+                <div><h4 class="name">Jessica Thompson</h4><p class="meta">Max, Golden Retriever</p></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"The daycare is amazing! My pup comes home happy and tired. The daily report cards and photos are such a nice touch. Best investment for my work-from-home sanity."</p>
+            <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Michael Park" class="avatar">
+                <div><h4 class="name">Michael Park</h4><p class="meta">Luna, Labradoodle</p></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"We board our two cats here whenever we travel, and they always seem relaxed when we pick them up. The staff truly cares about all animals, not just dogs."</p>
+            <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Amanda Chen" class="avatar">
+                <div><h4 class="name">Amanda Chen</h4><p class="meta">Whiskers & Shadow, Cats</p></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Sarah is a miracle worker! She transformed my matted Maltese into a show-worthy pup. The attention to detail and patience is unmatched anywhere in Austin."</p>
+            <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="David Martinez" class="avatar">
+                <div><h4 class="name">David Martinez</h4><p class="meta">Princess, Maltese</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="book">
+    <h2>Ready to Pamper Your Pet?</h2>
+    <p>Book an appointment today and give your furry friend the love and care they deserve. First-time customers get 15% off their first grooming service!</p>
+
+    <div class="cta-actions">
+        <a href="mailto:hello@pawsandplay.com" class="btn-pink">Book Appointment</a>
+        <a href="tel:5557287529" class="cta-phone">
+            <i class="fa-solid fa-phone"></i>
+            (555) 728-7529
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h2>Paws & Play</h2>
+            <p>Premium pet grooming, daycare, and boarding services in Austin, TX. Loving care for your furry family members since 2015.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Services</h3>
+            <a href="#services">Grooming</a>
+            <a href="#services">Daycare</a>
+            <a href="#services">Boarding</a>
+            <a href="#services">Pricing</a>
+        </div>
+
+        <div class="footer-column" id="team">
+            <h3>Company</h3>
+            <a href="#about">About Us</a>
+            <a href="#team">Our Team</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Support</h3>
+            <a href="#contact">FAQs</a>
+            <a href="#contact">New Client Info</a>
+            <a href="#contact">Vaccination Policy</a>
+            <a href="#contact">Cancellation Policy</a>
+        </div>
+
+        <div class="footer-column" id="contact">
+            <h3>Contact & Hours</h3>
+            <p>Mon-Fri: 7:00 AM - 7:00 PM</p>
+            <p>Saturday: 8:00 AM - 6:00 PM</p>
+            <p>Sunday: 9:00 AM - 5:00 PM</p>
+            <a href="mailto:hello@pawsandplay.com">hello@pawsandplay.com</a>
+            <a href="tel:5557287529">(555) 728-7529</a>
+            <p>456 Pet Paradise Lane<br>Austin, TX 78701</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Paws & Play. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
